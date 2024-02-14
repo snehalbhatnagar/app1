@@ -5,7 +5,7 @@ function Task2Component() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/data1')
+    axios.get('webappsnehal01.azurewebsites.net/data1')
       .then(response => {
         setData(response.data);
       })
@@ -19,14 +19,13 @@ function Task2Component() {
   return (
     <div>
       <h2>Data from Backend</h2>
-      <table>
+      <table border={1}>
         <thead>
           <tr>
             <th>Customer ID</th>
             <th>First Name</th>
             <th>Middle Name</th>
             <th>Last Name</th>
-            <th>Email</th>
             <th>Phone</th>           
           </tr>
         </thead>
@@ -36,8 +35,7 @@ function Task2Component() {
     <td>{item.CustomerID}</td>
     <td>{item.FirstName}</td>
     <td>{item.MiddleName}</td>
-    <td>{item.LastName}</td>
-    <td>{item.Email}</td>
+    <td>{item.LastName}</td>   
     <td>{item.Phone}</td>  
   </tr>
 ))}

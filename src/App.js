@@ -21,8 +21,8 @@ function App() {
       </div>
       <div className="content">
       {activeTab === 'Task 1' && (
-  <div>
-    <Carousel showThumbs={false}>
+  <div className="carClass">
+    <Carousel showThumbs={false} infiniteLoop={true} autoPlay={true} interval={3000}>
       <div>
         <img src="https://burst.shopifycdn.com/photos/chicago-city-lights-at-night.jpg?width=1000&format=pjpg&exif=0&iptc=0" alt="Placeholder 1" />
         <p className="legend">Chicago</p>

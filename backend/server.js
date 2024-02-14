@@ -1,25 +1,23 @@
 const express = require('express');
 const sql = require('mssql');
-const cors = require('cors'); // Import the cors middleware
+const cors = require('cors'); 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
-// Enable CORS for all routes
 app.use(cors());
 
-// SQL Server configuration
+
 const config = {
   user: 'bootcamp',
   password: 'Pass@123',
   server: 'bootcampfeb5.database.windows.net',
   database: 'bootcamp',
   options: {
-    encrypt: true, // Required for Azure
-    trustServerCertificate: false // Required for Azure
+    encrypt: true, 
+    trustServerCertificate: false 
   }
 };
 
-// Connect to SQL Server
 sql.connect(config)
   .then(() => {
     console.log('Connected to SQL Azure database');
@@ -28,7 +26,6 @@ sql.connect(config)
     console.error('Error connecting to SQL Azure database:', err);
   });
 
-// Define a route to fetch data from the database
 app.get('/data1', async (req, res) => {
   try {
     const result = await sql.query('SELECT TOP 20 * FROM SalesLT.Customer;');
@@ -49,7 +46,7 @@ app.get('/data2', async (req, res) => {
     }
   });
 
-// Start the server
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });

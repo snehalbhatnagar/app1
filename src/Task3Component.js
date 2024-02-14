@@ -5,7 +5,7 @@ function Task3Component() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/data2')
+    axios.get('webappsnehal01.azurewebsites.net/data2')
       .then(response => {
         setData(response.data);
       })
@@ -19,7 +19,7 @@ function Task3Component() {
   return (
     <div>
       <h2>Data from Backend</h2>
-      <table>
+      <table border={1}>
         <thead>
           <tr>
             <th>Product Name</th>
