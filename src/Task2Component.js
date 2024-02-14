@@ -5,7 +5,7 @@ function Task2Component() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('webappsnehal01.azurewebsites.net/data1')
+    axios.get('https://webappsnehal.azurewebsites.net/data1')
       .then(response => {
         setData(response.data);
       })
